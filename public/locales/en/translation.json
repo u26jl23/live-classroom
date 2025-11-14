@@ -1,0 +1,9 @@
+{
+  "appTitle": "Live Classroom Assistant",
+  "welcomeMessage": "Welcome to the app!",
+  "nav": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "dashboard": "Dashboard"
+  }
+}
