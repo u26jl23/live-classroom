@@ -1,6 +1,9 @@
 {
   "appTitle": "Live Classroom Assistant",
   "welcomeMessage": "Welcome to the app!",
+  "loginTitle": "Login",
+  "signupTitle": "Create an Account",
+  "dashboardTitle": "Teacher Dashboard",
   "nav": {
     "login": "Login",
     "signup": "Sign Up",
