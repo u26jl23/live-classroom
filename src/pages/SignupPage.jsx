@@ -15,28 +15,11 @@ export default function SignupPage(){
 
     const handleSignup = async (e) => {
         e.preventDefault()
-
-        // 【监控点 1】证明按钮被点中了
-        console.log("1. 按钮被点击，开始执行 handleSignup"); 
-        console.log("   -> 输入的邮箱:", email);
-        console.log("   -> 输入的密码长度:", password.length);
-
         setError('')
 
         try {
-            // 【监控点 2】开始调用 Firebase Auth
-            console.log("2. 正在请求 Firebase Auth 创建用户...");
-
             const userCredential = await createUserWithEmailAndPassword(auth, email, password)
             const user = userCredential.user
-
-            // 【监控点 3】Auth 成功，准备写数据库
-            console.log("3. Auth 成功！UID:", userCredential.user.uid);
-            console.log("   -> 正在写入 Firestore...");
-
-            // ▼▼▼ 加这一行 ▼▼▼
-            console.log("   -> 检查 db 对象:", db); 
-            // ▲▲▲▲▲▲
 
             await setDoc(doc(db, 'users', user.uid), {
                 email: user.email,
@@ -44,23 +27,16 @@ export default function SignupPage(){
                 createdAt: new Date()
             })
 
-            // 【监控点 4】全部完成
-            console.log("4. 全部流程完成！");
-
             alert(t('form.success'))
             navigate('/login')
 
         }catch (err){
-            // 【错误捕获】
-            console.error("!!! 发生错误，详情如下 !!!")
-
             console.error(err)
             setError(err.message)
         }
     }
 
     return (
-
         <div style={{ padding: '20px', maxWidth: '400px', margin: '0 auto' }}>
             <h1>{t('signupTitle')}</h1>
             {error && <p style={{ color: 'red' }}>{error}</p>}
