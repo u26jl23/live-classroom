@@ -8,5 +8,14 @@
     "login": "Login",
     "signup": "Sign Up",
     "dashboard": "Dashboard"
+  },
+  "form": {
+    "email": "Email Address",
+    "password": "Password",
+    "role": "I am a...",
+    "teacher": "Teacher",
+    "student": "Student",
+    "submitSignup": "Sign Up Now",
+    "success": "Account created successfully!"
   }
 }
